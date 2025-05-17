@@ -17,12 +17,12 @@ export const NavMenu = (props: NavigationMenuProps) => (
 			</NavigationMenuItem>
 			<NavigationMenuItem>
 				<NavigationMenuLink asChild>
-					<Link href='#'>Meta</Link>
+					<Link href='/meta'>Meta</Link>
 				</NavigationMenuLink>
 			</NavigationMenuItem>
 			<NavigationMenuItem>
 				<NavigationMenuLink asChild>
-					<Link href='#'>Heroes</Link>
+					<Link href='/heroes'>Heroes</Link>
 				</NavigationMenuLink>
 			</NavigationMenuItem>
 		</NavigationMenuList>
