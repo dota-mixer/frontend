@@ -2,6 +2,7 @@
 
 import { HeroesService, HeroOut } from '@/client'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 const rolesMap = {
@@ -87,18 +88,24 @@ function HeroCardList({ heroes }: { heroes: HeroOut[] }) {
 					key={hero.npc}
 					className={`flex flex-wrap items-center gap-1 rounded-md hover:scale-110 transition-transform duration-200 ${
 						(console.log(hero.name, hero.all_winrate),
-						(hero.all_winrate ?? 0) >= 0.5 ? 'border border-[#EFAD38]' : '')
+						(hero.all_winrate ?? 0) >= 0.5
+							? 'border border-[#EFAD38]'
+							: 'opacity-95')
 					}`}
 				>
-					<a href={`/hero/${hero.npc}`} className='flex items-center gap-2'>
+					<Link
+						href={`/hero/${hero.npc}`}
+						className='flex items-center gap-2'
+						title={hero.name}
+					>
 						<Image
 							src={`https://dota2protracker.com/static/hero_images_jpg_res/${hero.npc}_vert.jpg`}
 							alt={hero.name}
 							width={53}
 							height={63}
-							className='rounded-md'
+							className='rounded-md bg-secondary/10'
 						/>
-					</a>
+					</Link>
 				</div>
 			))}
 		</div>
