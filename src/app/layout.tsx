@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	title: 'Dota Mixer',
 	description: '',
+	icons: {
+		icon: '/assets/images/favicon.ico',
+	},
 }
 
 OpenAPI.BASE = process.env.API_BASE_URL || '/api'
