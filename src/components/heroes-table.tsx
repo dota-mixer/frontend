@@ -13,7 +13,7 @@ export async function TopHeroesTable() {
 	const { data } = await HeroesService.getHeroes()
 
 	return (
-		<div className='h-[calc(100vh-192px)] overflow-auto w-full md:w-3/4 mx-auto bg-sidebar rounded-md '>
+		<div className='h-[calc(100vh-192px)] overflow-auto w-full md:w-3/4 mx-auto bg-secondary/10 border border-accent/10 rounded-md '>
 			<Table className='w-full'>
 				<TableHeader>
 					<TableRow>
