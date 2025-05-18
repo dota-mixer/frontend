@@ -63,11 +63,11 @@ export function HeroesGrid() {
 					key={role}
 					className='rounded-lg bg-secondary/10 p-4 border border-accent/10'
 				>
-					<h2 className='flex items-center text-lg font-normal'>
+					<h2 className='flex items-center text-lg font-normal gap-2'>
 						<Image
 							src={`https://dota2protracker.com/static/pos/pos_${role}.png`}
 							alt={`position ${role}`}
-							className='w-5 h-5 inline-block mr-2 svelte-mbo9az'
+							className='w-5 h-5 inline-block svelte-mbo9az'
 							width={5}
 							height={5}
 						/>
@@ -86,11 +86,11 @@ function HeroCardList({ heroes }: { heroes: HeroOut[] }) {
 			{heroes.map((hero) => (
 				<div
 					key={hero.npc}
-					className={`flex flex-wrap items-center gap-1 rounded-md hover:scale-110 transition-transform duration-200 ${
+					className={`flex flex-wrap items-center rounded-md hover:scale-110 transition-transform duration-200 border ${
 						(console.log(hero.name, hero.all_winrate),
 						(hero.all_winrate ?? 0) >= 0.5
-							? 'border border-[#EFAD38]'
-							: 'opacity-95')
+							? 'border-[#EFAD38]'
+							: 'border-accent opacity-95')
 					}`}
 				>
 					<Link
