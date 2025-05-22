@@ -1,4 +1,6 @@
-import { HeroesService } from '@/client'
+'use client'
+
+import { HeroesService, HeroOut } from '@/client'
 import {
 	Table,
 	TableBody,
@@ -7,23 +9,34 @@ import {
 	TableHeader,
 	TableRow,
 } from '@/components/ui/table'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
-export async function TopHeroesTable() {
-	const { data } = await HeroesService.getHeroes()
+export function TopHeroesTable() {
+	const t = useTranslations('HeroesTable')
+	const [data, setData] = useState<HeroOut[]>([])
+
+	useEffect(() => {
+		async function fetchHeroes() {
+			const { data } = await HeroesService.getHeroes()
+			setData(data)
+		}
+		fetchHeroes()
+	}, [])
 
 	return (
 		<div className='h-[calc(100vh-192px)] overflow-auto w-full md:w-3/4 mx-auto bg-secondary/10 border border-accent/10 rounded-md '>
 			<Table className='w-full'>
 				<TableHeader>
 					<TableRow>
-						<TableHead>Hero</TableHead>
-						<TableHead>Winrate</TableHead>
-						<TableHead>Matches</TableHead>
-						<TableHead>Rating</TableHead>
+						<TableHead>{t('row_hero')}</TableHead>
+						<TableHead>{t('row_winrate')}</TableHead>
+						<TableHead>{t('row_matches')}</TableHead>
+						<TableHead>{t('row_rating')}</TableHead>
 					</TableRow>
 				</TableHeader>
-				<TableBody>
+				<TableBody className=''>
 					{data.map((hero) => (
 						<TableRow key={hero.hero_id}>
 							<TableCell className='font-medium'>
@@ -38,7 +51,13 @@ export async function TopHeroesTable() {
 									<span>{hero.name}</span>
 								</div>
 							</TableCell>
-							<TableCell>
+							<TableCell
+								className={`${
+									hero.all_winrate && hero.all_winrate < 0.5
+										? 'text-red-500'
+										: 'text-green-500'
+								}`}
+							>
 								{Math.round((hero.all_winrate ?? 0) * 1000) / 10}%
 							</TableCell>
 							<TableCell>{hero.all_matches}</TableCell>

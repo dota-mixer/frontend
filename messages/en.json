@@ -1,7 +1,26 @@
 {
-	"HomePage": {
-		"title": "Hello world!",
-		"about": "Go to the about page",
-		"topHeroes": "Top Heroes"
+	"HomePage": {},
+	"Nav": {
+		"home": "Home",
+		"meta": "Meta",
+		"heroes": "Heroes",
+		"signIn": "Sign in",
+		"signUp": "Sign up",
+		"signOut": "Sign out"
+	},
+	"HeroesTable": {
+		"title": "Top Heroes",
+		"row_hero": "Hero",
+		"row_winrate": "Winrate",
+		"row_matches": "Matches",
+		"row_rating": "Rating"
+	},
+	"HeroesGrid": {
+		"gridTitle": "Heroes",
+		"carry": "Carry",
+		"mid": "Mid",
+		"offlane": "Offlane",
+		"support": "Support",
+		"fullSupport": "Hard Support"
 	}
 }

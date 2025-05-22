@@ -1,7 +1,26 @@
 {
-	"HomePage": {
-		"title": "Hello world!",
-		"about": "Go to the about page",
-		"topHeroes": "Лучшие герои"
+	"HomePage": {},
+	"Nav": {
+		"home": "Главная",
+		"meta": "Мета",
+		"heroes": "Герои",
+		"signIn": "Войти",
+		"signUp": "Зарегистрироваться",
+		"signOut": "Выйти"
+	},
+	"HeroesTable": {
+		"title": "Лучшие герои",
+		"row_hero": "Герой",
+		"row_winrate": "Винрейт",
+		"row_matches": "Матчей",
+		"row_rating": "Рейтинг"
+	},
+	"HeroesGrid": {
+		"gridTitle": "Герои",
+		"carry": "Керри",
+		"mid": "Мид",
+		"offlane": "Оффлейн",
+		"support": "Саппорт",
+		"fullSupport": "Фулл-саппорт"
 	}
 }

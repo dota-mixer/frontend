@@ -1,19 +1,21 @@
 'use client'
 
 import { HeroesService, HeroOut } from '@/client'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-const rolesMap = {
-	1: 'Carry',
-	2: 'Mid',
-	3: 'Offlane',
-	4: 'Support',
-	5: 'Hard Support',
-} as const
-
 export function HeroesGrid() {
+	const t = useTranslations('HeroesGrid')
+	const rolesMap = {
+		1: t('carry'),
+		2: t('mid'),
+		3: t('offlane'),
+		4: t('support'),
+		5: t('fullSupport'),
+	} as const
+
 	const [groupedHeroes, setGroupedHeroes] = useState<Record<number, HeroOut[]>>(
 		{
 			1: [],
