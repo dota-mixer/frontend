@@ -7,7 +7,7 @@ export default function Home() {
 	return (
 		<main className='flex flex-col items-center justify-between gap-4 pt-4'>
 			<h1 className='text-2xl font-bold'>{t('title')}</h1>
-			<TopHeroesTable />
+			<TopHeroesTable defaultSortKey='name' defaultSortDirection='ascending' />
 		</main>
 	)
 }
