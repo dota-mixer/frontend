@@ -108,7 +108,7 @@ export function TopHeroesTable({
 	return (
 		<div className='h-[calc(100vh-192px)] overflow-auto w-full md:w-3/4 mx-auto bg-secondary/10 border border-accent/10 rounded-md '>
 			<Table className='w-full'>
-				<TableHeader>
+				<TableHeader className='sticky top-0 z-10 bg-background/95'>
 					<TableRow>
 						{columns.map((column) => (
 							<TableHead
