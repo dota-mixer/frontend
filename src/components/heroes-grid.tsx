@@ -29,7 +29,7 @@ export function HeroesGrid() {
 	useEffect(() => {
 		const fetchHeroes = async () => {
 			const { data } = await HeroesService.getHeroes()
-			console.log(data)
+			// console.log(data)
 
 			const result: Record<number, HeroOut[]> = {
 				1: [],
@@ -89,10 +89,9 @@ function HeroCardList({ heroes }: { heroes: HeroOut[] }) {
 				<div
 					key={hero.npc}
 					className={`flex flex-wrap items-center rounded-md hover:scale-110 transition-transform duration-200 border ${
-						(console.log(hero.name, hero.all_winrate),
 						(hero.all_winrate ?? 0) >= 0.5
 							? 'border-[#EFAD38]'
-							: 'border-accent opacity-95')
+							: 'border-accent opacity-95'
 					}`}
 				>
 					<Link
