@@ -1,19 +1,38 @@
-// src/app/[locale]/hero/[heroName]/page.tsx
+'use client'
+import { HeroesService, HeroOut } from '@/client'
 import { HeroHeader } from '@/components/hero/HeroHeader'
+import { useEffect, useState } from 'react'
 
 type HeroPageProps = {
-	params: {
+	params: Promise<{
 		heroName: string
-	}
+	}>
 }
 
 export default function HeroPage({ params }: HeroPageProps) {
-	const { heroName } = params
+	const [heroName, setHeroName] = useState<string | undefined>(undefined)
+	const [hero, setHero] = useState<HeroOut | null>(null)
+
+	useEffect(() => {
+		params.then((resolvedParams) => {
+			setHeroName(resolvedParams.heroName)
+		})
+	}, [params])
+
+	useEffect(() => {
+		if (heroName) {
+			async function fetchHero() {
+				const response = await HeroesService.readHeroByName({ name: heroName! })
+				setHero(response)
+			}
+			fetchHero()
+		}
+	}, [heroName])
 
 	return (
 		<main className='flex flex-col items-center justify-between gap-4 pt-4'>
 			<div className='w-[99%]'>
-				<HeroHeader heroName={heroName} />
+				{hero ? <HeroHeader {...hero} /> : <p>Loading hero...</p>}
 			</div>
 		</main>
 	)

@@ -28,5 +28,13 @@
 		"matches": "matches",
 		"winrate": "winrate",
 		"roleStats": "Role stats are based on 7000-8500 MMR matches from the last 8 days."
+	},
+	"RolesTabs": {
+		"allRoles": "All roles",
+		"carry": "Carry",
+		"mid": "Mid",
+		"offlane": "Offlane",
+		"support": "Support",
+		"fullSupport": "Hard Support"
 	}
 }
