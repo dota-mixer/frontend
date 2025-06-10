@@ -3,7 +3,12 @@
 import type { CancelablePromise } from './core/CancelablePromise'
 import { OpenAPI } from './core/OpenAPI'
 import { request as __request } from './core/request'
-import type { HealthcheckResponse, HeroesGetHeroesResponse } from './types.gen'
+import type {
+	HealthcheckResponse,
+	HeroesReadHeroByNameData,
+	HeroesReadHeroByNameResponse,
+	HeroesReadHeroesResponse,
+} from './types.gen'
 
 export class DefaultService {
 	/**
@@ -21,15 +26,38 @@ export class DefaultService {
 
 export class HeroesService {
 	/**
-	 * Get Heroes
+	 * Read Heroes
 	 * Get the list of heroes.
 	 * @returns HeroesOut Successful Response
 	 * @throws ApiError
 	 */
-	public static getHeroes(): CancelablePromise<HeroesGetHeroesResponse> {
+	public static readHeroes(): CancelablePromise<HeroesReadHeroesResponse> {
 		return __request(OpenAPI, {
 			method: 'GET',
 			url: '/api/v1/heroes/',
+		})
+	}
+
+	/**
+	 * Read Hero By Name
+	 * Get the hero by NPC name.
+	 * @param data The data for the request.
+	 * @param data.name
+	 * @returns HeroOut Successful Response
+	 * @throws ApiError
+	 */
+	public static readHeroByName(
+		data: HeroesReadHeroByNameData
+	): CancelablePromise<HeroesReadHeroByNameResponse> {
+		return __request(OpenAPI, {
+			method: 'GET',
+			url: '/api/v1/heroes/{name}',
+			path: {
+				name: data.name,
+			},
+			errors: {
+				422: 'Validation Error',
+			},
 		})
 	}
 }

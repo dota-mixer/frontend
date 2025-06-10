@@ -51,7 +51,7 @@ export function TopHeroesTable({
 
 	useEffect(() => {
 		async function fetchHeroes() {
-			const response = await HeroesService.getHeroes()
+			const response = await HeroesService.readHeroes()
 			setData(response.data)
 
 			const initialSortKey = defaultSortKey || 'all_elo'

@@ -20,6 +20,10 @@ export type HeroOut = {
 	pos_5?: PositionStats
 }
 
+export type HTTPValidationError = {
+	detail?: Array<ValidationError>
+}
+
 export type PositionStats = {
 	elo?: number | null
 	matches?: number
@@ -28,6 +32,18 @@ export type PositionStats = {
 
 export type PrimaryAttribute = 0 | 1 | 2 | 3
 
+export type ValidationError = {
+	loc: Array<string | number>
+	msg: string
+	type: string
+}
+
 export type HealthcheckResponse = unknown
 
-export type HeroesGetHeroesResponse = HeroesOut
+export type HeroesReadHeroesResponse = HeroesOut
+
+export type HeroesReadHeroByNameData = {
+	name: string
+}
+
+export type HeroesReadHeroByNameResponse = HeroOut

@@ -28,7 +28,7 @@ export function HeroesGrid() {
 
 	useEffect(() => {
 		const fetchHeroes = async () => {
-			const { data } = await HeroesService.getHeroes()
+			const { data } = await HeroesService.readHeroes()
 			// console.log(data)
 
 			const result: Record<number, HeroOut[]> = {
