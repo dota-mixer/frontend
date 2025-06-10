@@ -18,9 +18,15 @@
 	"HeroesGrid": {
 		"gridTitle": "Герои",
 		"carry": "Керри",
-		"mid": "Мид",
-		"offlane": "Оффлейн",
-		"support": "Саппорт",
-		"fullSupport": "Фулл-саппорт"
+		"mid": "Мидеры",
+		"offlane": "Оффлейнеры",
+		"support": "Саппорты",
+		"fullSupport": "Фулл-саппорты"
+	},
+	"HeroPage": {
+		"title": "Герой",
+		"matches": "матчей",
+		"winrate": "винрейт",
+		"roleStats": "Статистика ролей основана на 7000-8500 матчах MMR за последние 8 дней."
 	}
 }

@@ -22,5 +22,11 @@
 		"offlane": "Offlane",
 		"support": "Support",
 		"fullSupport": "Hard Support"
+	},
+	"HeroPage": {
+		"title": "Hero",
+		"matches": "matches",
+		"winrate": "winrate",
+		"roleStats": "Role stats are based on 7000-8500 MMR matches from the last 8 days."
 	}
 }
