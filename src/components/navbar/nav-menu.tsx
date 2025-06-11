@@ -7,14 +7,14 @@ import {
 	NavigationMenuList,
 } from '@/components/ui/navigation-menu'
 import { NavigationMenuProps } from '@radix-ui/react-navigation-menu'
-import { BarChart3, Home, Users } from 'lucide-react'
+import { Home, Users } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const navItems = [
 	{ href: '/', labelKey: 'home', Icon: Home },
-	{ href: '/meta', labelKey: 'meta', Icon: BarChart3 },
+	// { href: '/meta', labelKey: 'meta', Icon: BarChart3 },
 	{ href: '/heroes', labelKey: 'heroes', Icon: Users },
 ]
 
