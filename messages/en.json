@@ -36,5 +36,12 @@
 		"offlane": "Offlane",
 		"support": "Support",
 		"fullSupport": "Hard Support"
+	},
+	"HeroItemsTable": {
+		"item": "Item",
+		"matches": "Matches",
+		"purchaseRate": "Purchase Rate",
+		"winrate": "Winrate",
+		"avgTime": "Avg Time"
 	}
 }

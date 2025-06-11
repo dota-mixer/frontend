@@ -36,5 +36,12 @@
 		"offlane": "Оффлейнер",
 		"support": "Саппорт",
 		"fullSupport": "Фулл-саппорт"
+	},
+	"HeroItemsTable": {
+		"item": "Предмет",
+		"matches": "Кол-во матчей",
+		"purchaseRate": "Кол-во покупок",
+		"winrate": "Винрейт",
+		"avgTime": "Среднее время покупки"
 	}
 }

@@ -11,6 +11,7 @@ import {
 	TableRow,
 } from '@/components/ui/table'
 import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -44,12 +45,13 @@ export function ItemsStatsTable({
 }: ItemsStatsTableProps) {
 	const [items, setItems] = useState<ItemStat[]>([])
 	const [sortConfig, setSortConfig] = useState<SortConfig | null>(null)
+	const t = useTranslations('HeroItemsTable')
 	const columns: TableColumn[] = [
-		{ key: 'item_name', label: 'Item' },
-		{ key: 'matches', label: 'Matches' },
-		{ key: 'purchase_rate', label: 'Purchase rate' },
-		{ key: 'win_rate', label: 'Winrate' },
-		{ key: 'avg_purchase_time', label: 'Avg Time' },
+		{ key: 'item_name', label: t('item') },
+		{ key: 'matches', label: t('matches') },
+		{ key: 'purchase_rate', label: t('purchaseRate') },
+		{ key: 'win_rate', label: t('winrate') },
+		{ key: 'avg_purchase_time', label: t('avgTime') },
 	]
 
 	useEffect(() => {
@@ -118,6 +120,12 @@ export function ItemsStatsTable({
 		return `https://www.dotabuff.com/assets/items/${formattedName}.jpg`
 	}
 
+	const formatTime = (timeInSeconds: number): string => {
+		const minutes = Math.floor(timeInSeconds / 60)
+		const seconds = Math.round(timeInSeconds % 60)
+		return `${minutes}:${seconds.toString().padStart(2, '0')}`
+	}
+
 	return (
 		<div className='h-[calc(100vh-192px)] overflow-auto w-full md:w-3/4 mx-auto bg-secondary/10 border border-foreground/10 rounded-md'>
 			<Table className='w-full'>
@@ -159,10 +167,16 @@ export function ItemsStatsTable({
 									<TableCell>
 										{Math.round((item.purchase_rate ?? 0) * 1000) / 10}%
 									</TableCell>
-									<TableCell>
+									<TableCell
+										className={`${
+											item.win_rate && item.win_rate < 0.5
+												? 'text-red-400'
+												: 'text-green-400'
+										}`}
+									>
 										{Math.round((item.win_rate ?? 0) * 1000) / 10}%
 									</TableCell>
-									<TableCell>{item.avg_purchase_time}</TableCell>
+									<TableCell>{formatTime(item.avg_purchase_time)}</TableCell>
 								</TableRow>
 							)
 						)
