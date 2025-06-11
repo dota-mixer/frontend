@@ -12,6 +12,7 @@ import {
 import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 
 type SortableColumn = keyof Pick<
@@ -130,16 +131,18 @@ export function TopHeroesTable({
 					{sortedData.map((hero) => (
 						<TableRow key={hero.hero_id}>
 							<TableCell className='font-medium'>
-								<div className='flex items-center gap-2 hover:bg-secondary p-2 rounded-md'>
-									<Image
-										src={`https://dota2protracker.com/static/hero_images_jpg_res/${hero.npc}_lg.jpg`}
-										alt={hero.name}
-										className='rounded-md'
-										width={70}
-										height={70}
-									/>
-									<span>{hero.name}</span>
-								</div>
+								<Link href={`/hero/${hero.npc}`}>
+									<div className='flex items-center gap-2 hover:bg-secondary p-2 rounded-md'>
+										<Image
+											src={`https://dota2protracker.com/static/hero_images_jpg_res/${hero.npc}_lg.jpg`}
+											alt={hero.name}
+											className='rounded-md'
+											width={70}
+											height={70}
+										/>
+										<span>{hero.name}</span>
+									</div>
+								</Link>
 							</TableCell>
 							<TableCell
 								className={`${
