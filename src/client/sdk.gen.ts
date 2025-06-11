@@ -8,6 +8,8 @@ import type {
 	HeroesReadHeroByNameData,
 	HeroesReadHeroByNameResponse,
 	HeroesReadHeroesResponse,
+	HeroesReadHeroItemsData,
+	HeroesReadHeroItemsResponse,
 } from './types.gen'
 
 export class DefaultService {
@@ -35,6 +37,33 @@ export class HeroesService {
 		return __request(OpenAPI, {
 			method: 'GET',
 			url: '/api/v1/heroes/',
+		})
+	}
+
+	/**
+	 * Read Hero Items
+	 * Get the items for a specific hero and position.
+	 * @param data The data for the request.
+	 * @param data.heroId
+	 * @param data.position
+	 * @param data.days
+	 * @returns HeroItemsOut Successful Response
+	 * @throws ApiError
+	 */
+	public static readHeroItems(
+		data: HeroesReadHeroItemsData
+	): CancelablePromise<HeroesReadHeroItemsResponse> {
+		return __request(OpenAPI, {
+			method: 'GET',
+			url: '/api/v1/heroes/items',
+			query: {
+				hero_id: data.heroId,
+				position: data.position,
+				days: data.days,
+			},
+			errors: {
+				422: 'Validation Error',
+			},
 		})
 	}
 
