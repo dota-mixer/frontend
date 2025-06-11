@@ -6,7 +6,9 @@
 		"heroes": "Heroes",
 		"signIn": "Sign in",
 		"signUp": "Sign up",
-		"signOut": "Sign out"
+		"signOut": "Sign out",
+		"toasterText": "The authorization and registration system is currently under development.",
+		"toasterButton": "Okay"
 	},
 	"HeroesTable": {
 		"title": "Top Heroes",

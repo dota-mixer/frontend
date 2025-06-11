@@ -6,7 +6,9 @@
 		"heroes": "Герои",
 		"signIn": "Войти",
 		"signUp": "Зарегистрироваться",
-		"signOut": "Выйти"
+		"signOut": "Выйти",
+		"toasterText": "В данный момент система авторизации и регистрации находится в разработке.",
+		"toasterButton": "Окей"
 	},
 	"HeroesTable": {
 		"title": "Лучшие герои",
@@ -40,7 +42,7 @@
 	"HeroItemsTable": {
 		"item": "Предмет",
 		"matches": "Кол-во матчей",
-		"purchaseRate": "Кол-во покупок",
+		"purchaseRate": "Процент покупок",
 		"winrate": "Винрейт",
 		"avgTime": "Среднее время покупки"
 	}
