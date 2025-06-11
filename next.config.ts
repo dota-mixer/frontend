@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
 				protocol: 'https',
 				hostname: 'dota2protracker.com',
 			},
+			{
+				protocol: 'https',
+				hostname: 'www.dotabuff.com',
+			},
 		],
 	},
 	env: {
