@@ -1,6 +1,7 @@
 'use client'
 import { HeroesService, HeroOut } from '@/client'
 import { HeroHeader } from '@/components/hero/HeroHeader'
+import { ItemsStatsTable } from '@/components/hero/ItemsStatsTable'
 import { useEffect, useState } from 'react'
 
 type HeroPageProps = {
@@ -30,9 +31,16 @@ export default function HeroPage({ params }: HeroPageProps) {
 	}, [heroName])
 
 	return (
-		<main className='flex flex-col items-center justify-between gap-4 pt-4'>
+		<main>
 			<div className='w-[99%]'>
-				{hero ? <HeroHeader {...hero} /> : <p>Loading hero...</p>}
+				{hero ? (
+					<div className='flex flex-col items-center justify-between gap-4 pt-4'>
+						<HeroHeader {...hero} />
+						<ItemsStatsTable heroId={hero.hero_id} />
+					</div>
+				) : (
+					<p>Loading hero...</p>
+				)}
 			</div>
 		</main>
 	)
