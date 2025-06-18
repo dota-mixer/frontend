@@ -1,4 +1,3 @@
-// src/components/hero/HeroHeader.tsx
 import { HeroOut } from '@/client'
 import { Card, CardContent } from '@/components/ui/card'
 import { useTranslations } from 'next-intl'
