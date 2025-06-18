@@ -1,3 +1,4 @@
+'use client'
 import { HeroOut } from '@/client'
 import { useTranslations } from 'next-intl'
 import { Button } from '../ui/button'
